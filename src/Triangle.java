@@ -20,6 +20,18 @@ public class Triangle{
         }
     }
 
+    public double calculatePerimetr () {
+        double perimetr = 0;
+        perimetr += calculateSide(dots.get(0), dots.get(1)) + calculateSide(dots.get(0), dots.get(2)) + calculateSide(dots.get(1), dots.get(2));
+        System.out.println(perimetr);
+        return perimetr;
+    }
 
+    public double calculateSide (Dot dot0, Dot dot1) {
+        double side = 0;
+        side = Math.sqrt((dot0.getxCord() - dot1.getxCord()) * (dot0.getxCord() - dot1.getxCord()) +
+                (dot0.getyCord() - dot1.getyCord()) * (dot0.getyCord() - dot1.getyCord()));
+        return side;
+    }
 
 }
