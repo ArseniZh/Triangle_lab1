@@ -6,16 +6,16 @@ public class Dot {
         this.yCord = yCord;
     }
 
-    public void setxCord (double xCord) {
+    public void setXCord(double xCord) {
         xCord = this.xCord;
     }
-    public void setyCord (double yCord) {
+    public void setYCord(double yCord) {
         yCord = this.yCord;
     }
-    public double getxCord () {
+    public double getXCord() {
         return this.xCord;
     }
-    public double getyCord () {
+    public double getYCord() {
         return this.yCord;
     }
     public String toString () {
