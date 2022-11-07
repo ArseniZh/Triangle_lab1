@@ -1,7 +1,7 @@
 public class Dot {
     double xCord, yCord ;
 
-    Dot(double xCord, double yCord){
+    Dot(double xCord, double yCord) {
         this.xCord = xCord;
         this.yCord = yCord;
     }
@@ -18,7 +18,7 @@ public class Dot {
     public double getYCord() {
         return this.yCord;
     }
-    public String toString () {
+    public String toString() {
         return "xCord: " + this.xCord + "yCord: " + this.yCord;
     }
 }
