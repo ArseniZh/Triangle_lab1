@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class MainClass {
@@ -22,11 +21,11 @@ public class MainClass {
             trianglesList.get(i).calculatePerimetr();
             trianglesList.get(i).calculateSquare();
             trianglesList.get(i).triangleType();
-            TriangleCalculator.addTriangleType(trianglesList.get(i));
+            TriangleFeachers.addTriangleType(trianglesList.get(i));
         }
 
         System.out.println(trianglesList.get(0).toString());
-        TriangleCalculator.minPerimetr("arbitrary");
-
+        System.out.println(TriangleFeachers.minPerimetr("arbitrary"));
+        System.out.println(TriangleFeachers.maxSquare("iosceles"));
     }
 }

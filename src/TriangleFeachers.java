@@ -26,11 +26,45 @@ public class TriangleFeachers {
     public static double minPerimetr(String trienglType) {
         ArrayList<Triangle> onetypeTriegles = typeMap.get(trienglType);
         double minPerimetr = onetypeTriegles.get(0).getPerimetr();
+
         for (int i = 1; i < onetypeTriegles.size(); i++) {
             if(minPerimetr > onetypeTriegles.get(i).getPerimetr()) {
                 minPerimetr = onetypeTriegles.get(i).getPerimetr();
             }
         }
         return minPerimetr;
+    }
+    public static double maxPerimetr(String trienglType) {
+        ArrayList<Triangle> onetypeTriegles = typeMap.get(trienglType);
+        double maxPerimetr = onetypeTriegles.get(0).getPerimetr();
+
+        for (int i = 1; i > onetypeTriegles.size(); i++) {
+            if(maxPerimetr < onetypeTriegles.get(i).getPerimetr()) {
+                maxPerimetr = onetypeTriegles.get(i).getPerimetr();
+            }
+        }
+        return maxPerimetr;
+    }
+    public static double minSquare(String trienglType) {
+        ArrayList<Triangle> onetypeTriegles = typeMap.get(trienglType);
+        double minSquare = onetypeTriegles.get(0).getSquare();
+
+        for (int i = 1; i < onetypeTriegles.size(); i++) {
+            if(minSquare > onetypeTriegles.get(i).getSquare()) {
+                minSquare = onetypeTriegles.get(i).getSquare();
+            }
+        }
+        return minSquare;
+    }
+    public static double maxSquare(String trienglType) {
+        ArrayList<Triangle> onetypeTriegles = typeMap.get(trienglType);
+        double maxSquare = onetypeTriegles.get(0).getSquare();
+
+        for (int i = 1; i < onetypeTriegles.size(); i++) {
+            if(maxSquare > onetypeTriegles.get(i).getSquare()) {
+                maxSquare = onetypeTriegles.get(i).getSquare();
+            }
+        }
+        return maxSquare;
     }
 }
