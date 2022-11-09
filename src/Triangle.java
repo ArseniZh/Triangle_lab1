@@ -2,25 +2,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Triangle{
-    public int dotNumbers = 3;
-    public List<Dot> dots = new ArrayList<>();
+    private int dotNumbers = 3;
+    private List<Dot> dots = new ArrayList<>();
+    private Dot firstDot;
+    private Dot secondDot;
+    private Dot thirdDot;
+    private double perimetr;
+    private double square;
+    private String triangleType;
 
     public Triangle() {
-        for (int i = 0; i < dotNumbers; i++) {
-            dots.add(new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2)));
-        }
+        firstDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
+        secondDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
+        thirdDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
+        perimetr = calculatePerimetr();
+        square = calculateSquare();
     }
-    public void print() {
-        int i = 1;
-        for (Dot dot : dots) {
-            System.out.println("Dot " + i++ + ":" +
-                    "\n\txCord: " + dot.getXCord() +
-                    "\n\tyCord: " + dot.getYCord());
-        }
+    public void setTriangleType(String triangleType) {
+        this.triangleType = triangleType;
+    }
+    public String getTriangleType() {
+        return triangleType;
+    }
+    public void setFirstDot(Dot firstDot) {
+        this.firstDot = firstDot;
+    }
+    public Dot getFirstDot() {
+        return firstDot;
+    }
+    public void setSecondDot(Dot secondDot) {
+        this.secondDot = secondDot;
+    }
+    public Dot getSecondDot() {
+        return secondDot;
+    }
+    public void setThirdDot(Dot thirdDot) {
+        this.thirdDot = thirdDot;
+    }
+    public Dot getThirdDot() {
+        return thirdDot;
+    }
+    public double getPerimetr() {
+        return perimetr;
+    }
+    public double getSquare() {
+        return square;
     }
     public double calculatePerimetr() {
-        double perimetr = 0;
-        perimetr += calculateSide(dots.get(0), dots.get(1)) + calculateSide(dots.get(0), dots.get(2)) + calculateSide(dots.get(1), dots.get(2));
+        perimetr += calculateSide(firstDot, secondDot) + calculateSide(firstDot, thirdDot) + calculateSide(secondDot, thirdDot);
         return perimetr;
     }
     public double calculateSide(Dot dot0, Dot dot1) {
@@ -30,32 +59,16 @@ public class Triangle{
         return side;
     }
     public double calculateSquare() {
-        double area = 0;
-        area = 0.5 * Math.abs((dots.get(1).getXCord() - dots.get(0).getXCord()) * (dots.get(2).getYCord() - dots.get(0).getYCord()) -
-                (dots.get(2).getXCord() - dots.get(0).getXCord()) * (dots.get(1).getYCord() - dots.get(0).getYCord()));
-        return area;
+        square = 0.5 * Math.abs((secondDot.getXCord() - firstDot.getXCord()) * (thirdDot.getYCord() - firstDot.getYCord()) -
+                (thirdDot.getXCord() - firstDot.getXCord()) * (secondDot.getYCord() - firstDot.getYCord()));
+        return square;
     }
     public String toString() {
-        return "First dot: " + "\n\txCord: " + dots.get(0).getXCord() + "\n\tyCord: " + dots.get(0).getYCord()
-                + "\nSecond dot: " + "\n\txCord: " + dots.get(1).getXCord() + "\n\tyCord: " + dots.get(1).getYCord()
-                + "\nThird dot: " + "\n\txCord: " + dots.get(2).getXCord() + "\n\tyCord: " + dots.get(2).getYCord();
+        return "First dot: " + "\n\txCord: " + firstDot.getXCord() + "\n\tyCord: " + firstDot.getYCord()
+                + "\nSecond dot: " + "\n\txCord: " + secondDot.getXCord() + "\n\tyCord: " + secondDot.getYCord()
+                + "\nThird dot: " + "\n\txCord: " + thirdDot.getXCord() + "\n\tyCord: " + thirdDot.getYCord()
+                + "\nPerimetr: " + perimetr
+                + "\nSquare: " + square + "\n";
     }
-    public String triangleType() {
-        double firstSide = calculateSide(dots.get(0), dots.get(1));
-        double secondSide = calculateSide(dots.get(0), dots.get(2));
-        double thirdSide = calculateSide(dots.get(1), dots.get(2));
 
-        if ((firstSide == secondSide) && (firstSide == thirdSide)) {
-            return "equilaterial"; //равносторонний
-        } else if ((firstSide == secondSide) || (firstSide == thirdSide) || (secondSide == thirdSide)) {
-            return "iosceles"; //равнобедренный
-        } else if ((Math.sqrt(firstSide * firstSide + secondSide * secondSide) == thirdSide)
-                        || (Math.sqrt(thirdSide * thirdSide + secondSide * secondSide) == firstSide)
-                        || (Math.sqrt(firstSide * firstSide + thirdSide * thirdSide) == secondSide)) {
-            return "right"; // прямоугольный
-        } else {
-            return "arbitrary"; // произвольный
-        }
-    }
 }
-

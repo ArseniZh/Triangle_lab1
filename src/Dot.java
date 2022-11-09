@@ -19,6 +19,6 @@ public class Dot {
         return this.yCord;
     }
     public String toString() {
-        return "xCord: " + this.xCord + "yCord: " + this.yCord;
+        return "xCord: " + this.xCord + "\nyCord: " + this.yCord + "\n";
     }
 }
