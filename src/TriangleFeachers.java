@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TriangleCalculator {
+public class TriangleFeachers {
     static ArrayList<Triangle> equilaterialTriangles = new ArrayList<>();
     static ArrayList<Triangle> ioscelesTriangles = new ArrayList<>();
     static ArrayList<Triangle> rightTriangles = new ArrayList<>();
