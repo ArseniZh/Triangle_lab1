@@ -17,6 +17,7 @@ public class Triangle{
         thirdDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
         perimetr = calculatePerimetr();
         square = calculateSquare();
+        triangleType = triangleType();
     }
     public void setTriangleType(String triangleType) {
         this.triangleType = triangleType;
@@ -63,12 +64,30 @@ public class Triangle{
                 (thirdDot.getXCord() - firstDot.getXCord()) * (secondDot.getYCord() - firstDot.getYCord()));
         return square;
     }
+    public String triangleType() {
+        double firstSide = calculateSide(firstDot, secondDot);
+        double secondSide = calculateSide(firstDot, thirdDot);
+        double thirdSide = calculateSide(secondDot, thirdDot);
+
+        if ((firstSide == secondSide) && (firstSide == thirdSide)) {
+            return "equilaterial"; //равносторонний
+        } else if ((firstSide == secondSide) || (firstSide == thirdSide) || (secondSide == thirdSide)) {
+            return "iosceles"; //равнобедренный
+        } else if ((Math.sqrt(firstSide * firstSide + secondSide * secondSide) == thirdSide)
+                || (Math.sqrt(thirdSide * thirdSide + secondSide * secondSide) == firstSide)
+                || (Math.sqrt(firstSide * firstSide + thirdSide * thirdSide) == secondSide)) {
+            return "right"; // прямоугольный
+        } else {
+            return "arbitrary"; // произвольный
+        }
+    }
     public String toString() {
         return "First dot: " + "\n\txCord: " + firstDot.getXCord() + "\n\tyCord: " + firstDot.getYCord()
                 + "\nSecond dot: " + "\n\txCord: " + secondDot.getXCord() + "\n\tyCord: " + secondDot.getYCord()
                 + "\nThird dot: " + "\n\txCord: " + thirdDot.getXCord() + "\n\tyCord: " + thirdDot.getYCord()
                 + "\nPerimetr: " + perimetr
-                + "\nSquare: " + square + "\n";
+                + "\nSquare: " + square
+                + "\nType: " + triangleType;
     }
 
 }
