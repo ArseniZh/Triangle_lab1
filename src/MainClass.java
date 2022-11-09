@@ -17,19 +17,16 @@ public class MainClass {
         trianglesList.get(0).setFirstDot(firstDot);
         trianglesList.get(0).setSecondDot(secondDot);
         trianglesList.get(0).setThirdDot(thirdDot);
+
+        for (int i = 0; i < Triangle_Quantity; i++) {
+            trianglesList.get(i).calculatePerimetr();
+            trianglesList.get(i).calculateSquare();
+            trianglesList.get(i).triangleType();
+            TriangleCalculator.addTriangleType(trianglesList.get(i));
+        }
+
         System.out.println(trianglesList.get(0).toString());
-        TriangleCalculator.addTriangleType(trianglesList.get(0));
-        TriangleCalculator.addTriangleType(trianglesList.get(1));
-        TriangleCalculator.addTriangleType(trianglesList.get(2));
+        TriangleCalculator.minPerimetr("arbitrary");
 
-        TriangleCalculator.addTrianglePerimetr(trianglesList.get(0));
-        TriangleCalculator.addTrianglePerimetr(trianglesList.get(1));
-        TriangleCalculator.addTrianglePerimetr(trianglesList.get(2));
-
-        TriangleCalculator.addTriangleSquare(trianglesList.get(0));
-        TriangleCalculator.addTriangleSquare(trianglesList.get(1));
-        TriangleCalculator.addTriangleSquare(trianglesList.get(2));
-
-        TriangleCalculator.print();
     }
 }

@@ -70,14 +70,18 @@ public class Triangle{
         double thirdSide = calculateSide(secondDot, thirdDot);
 
         if ((firstSide == secondSide) && (firstSide == thirdSide)) {
+            triangleType = "equilaterial";
             return "equilaterial"; //равносторонний
         } else if ((firstSide == secondSide) || (firstSide == thirdSide) || (secondSide == thirdSide)) {
+            triangleType = "iosceles";
             return "iosceles"; //равнобедренный
         } else if ((Math.sqrt(firstSide * firstSide + secondSide * secondSide) == thirdSide)
                 || (Math.sqrt(thirdSide * thirdSide + secondSide * secondSide) == firstSide)
                 || (Math.sqrt(firstSide * firstSide + thirdSide * thirdSide) == secondSide)) {
+            triangleType = "right";
             return "right"; // прямоугольный
         } else {
+            triangleType = "arbitrary";
             return "arbitrary"; // произвольный
         }
     }
@@ -89,5 +93,4 @@ public class Triangle{
                 + "\nSquare: " + square
                 + "\nType: " + triangleType;
     }
-
 }
