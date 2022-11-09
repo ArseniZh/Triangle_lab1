@@ -15,9 +15,9 @@ public class Triangle{
         firstDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
         secondDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
         thirdDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
-        perimetr = calculatePerimetr();
-        square = calculateSquare();
-        triangleType = triangleType();
+        perimetr = 0;
+        square = 0;
+        triangleType = null;
     }
     public void setTriangleType(String triangleType) {
         this.triangleType = triangleType;

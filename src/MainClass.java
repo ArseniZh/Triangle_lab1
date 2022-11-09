@@ -13,9 +13,6 @@ public class MainClass {
         for (int i = 0; i < Triangle_Quantity; i++) {
             trianglesList.add(new Triangle());
         }
-        for (int i = 0; i < Triangle_Quantity; i++) {
-            trianglesList.add(new Triangle());
-        }
 
         trianglesList.get(0).setFirstDot(firstDot);
         trianglesList.get(0).setSecondDot(secondDot);
