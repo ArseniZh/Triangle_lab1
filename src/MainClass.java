@@ -24,9 +24,11 @@ public class MainClass {
             TriangleFeachers.addTriangleType(trianglesList.get(i));
         }
 
-        System.out.println(trianglesList.get(0).toString());
-        System.out.println(TriangleFeachers.minPerimetr("arbitrary"));
-        System.out.println(TriangleFeachers.maxSquare("right"));
-        System.out.println(TriangleFeachers.maxSquare("equilaterial"));
+        System.out.println(trianglesList.get(0).toString() + "\n");
+        System.out.println(trianglesList.get(1).toString() + "\n");
+        System.out.println(trianglesList.get(2).toString() + "\n");
+        System.out.println("min perimetr from arbitrary = " + TriangleFeachers.minPerimetr("arbitrary"));
+        System.out.println("max square from right = " + TriangleFeachers.maxSquare("right"));
+        System.out.println("max square from equilaterial = " + TriangleFeachers.maxSquare("equilaterial"));
     }
 }

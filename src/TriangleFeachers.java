@@ -18,7 +18,7 @@ public class TriangleFeachers {
         } else if (triangle.getTriangleType() == "right") {
             rightTriangles.add(triangle);
             typeMap.put("right", rightTriangles);
-        } else if (triangle.getTriangleType() == "arbitrary") {
+        } else {
             arbitraryTriangles.add(triangle);
             typeMap.put("arbitrary", arbitraryTriangles);
         }
@@ -69,9 +69,8 @@ public class TriangleFeachers {
         if (typeMap.containsKey(trienglType)) {
             ArrayList<Triangle> onetypeTriegles = typeMap.get(trienglType);
             double maxSquare = onetypeTriegles.get(0).getSquare();
-
             for (int i = 1; i < onetypeTriegles.size(); i++) {
-                if (maxSquare > onetypeTriegles.get(i).getSquare()) {
+                if (maxSquare < onetypeTriegles.get(i).getSquare()) {
                     maxSquare = onetypeTriegles.get(i).getSquare();
                 }
             }
