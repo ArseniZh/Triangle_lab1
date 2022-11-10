@@ -5,7 +5,7 @@ public class MainClass {
     public static void main (String[] args) {
         final int Triangle_Quantity = 3;
         Dot firstDot = new Dot(0,0);
-        Dot secondDot = new Dot(1,0);
+        Dot secondDot = new Dot(2,0);
         Dot thirdDot = new Dot(0,1);
         List<Triangle> trianglesList = new ArrayList<>();
 
@@ -26,6 +26,7 @@ public class MainClass {
 
         System.out.println(trianglesList.get(0).toString());
         System.out.println(TriangleFeachers.minPerimetr("arbitrary"));
-        System.out.println(TriangleFeachers.maxSquare("iosceles"));
+        System.out.println(TriangleFeachers.maxSquare("right"));
+        System.out.println(TriangleFeachers.maxSquare("equilaterial"));
     }
 }

@@ -3,13 +3,18 @@ import java.util.List;
 
 public class Triangle{
     private int dotNumbers = 3;
-    private List<Dot> dots = new ArrayList<>();
     private Dot firstDot;
     private Dot secondDot;
     private Dot thirdDot;
+    private double[] sideLength = new double[3];
     private double perimetr;
     private double square;
     private String triangleType;
+    private enum triangleSides {
+        AB,
+        AC,
+        BC,
+    }
 
     public Triangle() {
         firstDot = new Dot((int)(Math.random()*20+2), (int)(Math.random()*20+2));
@@ -18,9 +23,6 @@ public class Triangle{
         perimetr = 0;
         square = 0;
         triangleType = null;
-    }
-    public void setTriangleType(String triangleType) {
-        this.triangleType = triangleType;
     }
     public String getTriangleType() {
         return triangleType;
@@ -65,30 +67,41 @@ public class Triangle{
         return square;
     }
     public String triangleType() {
-        double firstSide = calculateSide(firstDot, secondDot);
-        double secondSide = calculateSide(firstDot, thirdDot);
-        double thirdSide = calculateSide(secondDot, thirdDot);
+        sideLength[triangleSides.AB.ordinal()] = calculateSide(firstDot, secondDot);
+        sideLength[triangleSides.AC.ordinal()] = calculateSide(firstDot, thirdDot);
+        sideLength[triangleSides.BC.ordinal()] = calculateSide(secondDot, thirdDot);
 
-        if ((firstSide == secondSide) && (firstSide == thirdSide)) {
+        if ((sideLength[triangleSides.AB.ordinal()] == sideLength[triangleSides.AC.ordinal()])
+                && (sideLength[triangleSides.AB.ordinal()] == sideLength[triangleSides.BC.ordinal()])) {
             triangleType = "equilaterial";
             return "equilaterial"; //равносторонний
-        } else if ((firstSide == secondSide) || (firstSide == thirdSide) || (secondSide == thirdSide)) {
-            triangleType = "iosceles";
-            return "iosceles"; //равнобедренный
-        } else if ((Math.sqrt(firstSide * firstSide + secondSide * secondSide) == thirdSide)
-                || (Math.sqrt(thirdSide * thirdSide + secondSide * secondSide) == firstSide)
-                || (Math.sqrt(firstSide * firstSide + thirdSide * thirdSide) == secondSide)) {
+        } else if ((Math.sqrt(sideLength[triangleSides.AB.ordinal()] * sideLength[triangleSides.AB.ordinal()]
+                    + sideLength[triangleSides.AC.ordinal()] * sideLength[triangleSides.AC.ordinal()]) == sideLength[triangleSides.BC.ordinal()])
+                || (Math.sqrt(sideLength[triangleSides.BC.ordinal()] * sideLength[triangleSides.BC.ordinal()]
+                    + sideLength[triangleSides.AC.ordinal()] * sideLength[triangleSides.AC.ordinal()]) == sideLength[triangleSides.AB.ordinal()])
+                || (Math.sqrt(sideLength[triangleSides.AB.ordinal()] * sideLength[triangleSides.AB.ordinal()]
+                    + sideLength[triangleSides.BC.ordinal()] * sideLength[triangleSides.BC.ordinal()]) == sideLength[triangleSides.AC.ordinal()])) {
             triangleType = "right";
             return "right"; // прямоугольный
+        } else if ((sideLength[triangleSides.AB.ordinal()] == sideLength[triangleSides.AC.ordinal()])
+                || (sideLength[triangleSides.AB.ordinal()] == sideLength[triangleSides.BC.ordinal()])
+                || (sideLength[triangleSides.AB.ordinal()] == sideLength[triangleSides.BC.ordinal()])) {
+            triangleType = "iosceles";
+            return "iosceles"; //равнобедренный
         } else {
             triangleType = "arbitrary";
             return "arbitrary"; // произвольный
         }
     }
     public String toString() {
-        return "First dot: " + "\n\txCord: " + firstDot.getXCord() + "\n\tyCord: " + firstDot.getYCord()
+        return "First dot: "
+                + "\n\txCord: " + firstDot.getXCord() + "\n\tyCord: " + firstDot.getYCord()
                 + "\nSecond dot: " + "\n\txCord: " + secondDot.getXCord() + "\n\tyCord: " + secondDot.getYCord()
                 + "\nThird dot: " + "\n\txCord: " + thirdDot.getXCord() + "\n\tyCord: " + thirdDot.getYCord()
+                + "\nSides: "
+                + "\n\tAB: " + sideLength[triangleSides.AB.ordinal()]
+                + "\n\tAC: " + sideLength[triangleSides.AC.ordinal()]
+                + "\n\tBC: " + sideLength[triangleSides.BC.ordinal()]
                 + "\nPerimetr: " + perimetr
                 + "\nSquare: " + square
                 + "\nType: " + triangleType;
