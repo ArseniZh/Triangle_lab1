@@ -5,8 +5,8 @@ public class MainClass {
     public static void main (String[] args) {
         final int Triangle_Quantity = 3;
         Dot firstDot = new Dot(0,0);
-        Dot secondDot = new Dot(2,0);
-        Dot thirdDot = new Dot(0,1);
+        Dot secondDot = new Dot(5,0);
+        Dot thirdDot = new Dot(5,5);
         List<Triangle> trianglesList = new ArrayList<>();
 
         for (int i = 0; i < Triangle_Quantity; i++) {
