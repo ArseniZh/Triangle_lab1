@@ -1,3 +1,7 @@
+import dot.Dot;
+import triangle.Triangle;
+import util.TriangleFeachers;
+
 import java.util.ArrayList;
 import java.util.List;
 

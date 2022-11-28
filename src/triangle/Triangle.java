@@ -1,3 +1,6 @@
+package triangle;
+
+import dot.Dot;
 import java.util.ArrayList;
 import java.util.List;
 

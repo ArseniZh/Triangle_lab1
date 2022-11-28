@@ -1,7 +1,9 @@
-public class Dot {
-    double xCord, yCord ;
+package dot;
 
-    Dot(double xCord, double yCord) {
+public class Dot {
+    private double xCord, yCord ;
+
+    public Dot(double xCord, double yCord) {
         this.xCord = xCord;
         this.yCord = yCord;
     }

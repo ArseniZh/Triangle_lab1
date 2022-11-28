@@ -1,3 +1,7 @@
+package util;
+
+import triangle.Triangle;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
